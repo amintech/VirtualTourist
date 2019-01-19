@@ -13,7 +13,7 @@
         <!--Virtual Tourist-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mapView" id="BYZ-38-t0r" customClass="ViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapView" id="BYZ-38-t0r" customClass="MapViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,6 +33,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Virtual Tourist" id="mdX-gH-oGP"/>
                     <connections>
+                        <outlet property="mapView" destination="1f8-sX-h74" id="B6s-LR-KIf"/>
                         <segue destination="VxX-eU-fM2" kind="show" id="tn1-xb-tyc"/>
                     </connections>
                 </viewController>
@@ -56,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="-312" y="647"/>
         </scene>
-        <!--View Controller-->
+        <!--Collection View Controller-->
         <scene sceneID="uw0-vA-2JB">
             <objects>
-                <viewController storyboardIdentifier="collectionView" id="VxX-eU-fM2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="collectionView" id="VxX-eU-fM2" customClass="CollectionViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iMZ-UL-VMu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,6 +122,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cWI-Ox-Tkl"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="NBA-xj-tEr" id="5ig-l8-1wJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVF-q5-AsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

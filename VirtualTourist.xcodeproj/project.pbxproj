@@ -13,6 +13,8 @@
 		E325E23021F0C10F00679317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E325E22F21F0C10F00679317 /* Assets.xcassets */; };
 		E325E23321F0C10F00679317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E325E23121F0C10F00679317 /* LaunchScreen.storyboard */; };
 		E325E23E21F0C11000679317 /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E325E23D21F0C11000679317 /* VirtualTouristTests.swift */; };
+		E3B7094421F3356700C7B2DD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B7094321F3356700C7B2DD /* MapViewController.swift */; };
+		E3B7094621F3361600C7B2DD /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B7094521F3361600C7B2DD /* CollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		E325E23921F0C11000679317 /* VirtualTouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VirtualTouristTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E325E23D21F0C11000679317 /* VirtualTouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristTests.swift; sourceTree = "<group>"; };
 		E325E23F21F0C11000679317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3B7094321F3356700C7B2DD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E3B7094521F3361600C7B2DD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 		E325E24B21F2FAE900679317 /* Controlers */ = {
 			isa = PBXGroup;
 			children = (
+				E3B7094321F3356700C7B2DD /* MapViewController.swift */,
+				E3B7094521F3361600C7B2DD /* CollectionViewController.swift */,
 			);
 			path = Controlers;
 			sourceTree = "<group>";
@@ -221,7 +227,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B7094621F3361600C7B2DD /* CollectionViewController.swift in Sources */,
 				E325E22621F0C10700679317 /* AppDelegate.swift in Sources */,
+				E3B7094421F3356700C7B2DD /* MapViewController.swift in Sources */,
 				E325E22E21F0C10700679317 /* VirtualTourist.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
