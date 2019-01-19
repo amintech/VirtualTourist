@@ -15,6 +15,7 @@
 		E325E23E21F0C11000679317 /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E325E23D21F0C11000679317 /* VirtualTouristTests.swift */; };
 		E3B7094421F3356700C7B2DD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B7094321F3356700C7B2DD /* MapViewController.swift */; };
 		E3B7094621F3361600C7B2DD /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B7094521F3361600C7B2DD /* CollectionViewController.swift */; };
+		E3B7094821F3375800C7B2DD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B7094721F3375800C7B2DD /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E325E23F21F0C11000679317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3B7094321F3356700C7B2DD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		E3B7094521F3361600C7B2DD /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		E3B7094721F3375800C7B2DD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			children = (
 				E3B7094321F3356700C7B2DD /* MapViewController.swift */,
 				E3B7094521F3361600C7B2DD /* CollectionViewController.swift */,
+				E3B7094721F3375800C7B2DD /* CollectionViewCell.swift */,
 			);
 			path = Controlers;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B7094821F3375800C7B2DD /* CollectionViewCell.swift in Sources */,
 				E3B7094621F3361600C7B2DD /* CollectionViewController.swift in Sources */,
 				E325E22621F0C10700679317 /* AppDelegate.swift in Sources */,
 				E3B7094421F3356700C7B2DD /* MapViewController.swift in Sources */,
