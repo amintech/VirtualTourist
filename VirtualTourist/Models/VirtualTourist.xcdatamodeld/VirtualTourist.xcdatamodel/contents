@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="LocationImages" representedClassName="LocationImages" syncable="YES" codeGenerationType="class">
-        <attribute name="imageData" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" storedInTruthFile="YES" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Locations" inverseName="images" inverseEntity="Locations" syncable="YES"/>
     </entity>
     <entity name="Locations" representedClassName="Locations" syncable="YES" codeGenerationType="class">
@@ -10,7 +12,7 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LocationImages" inverseName="location" inverseEntity="LocationImages" syncable="YES"/>
     </entity>
     <elements>
-        <element name="LocationImages" positionX="155.265625" positionY="-2.8359375" width="128" height="75"/>
-        <element name="Locations" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="LocationImages" positionX="155.265625" positionY="-2.8359375" width="128" height="105"/>
+        <element name="Locations" positionX="-110.3671875" positionY="44.01953125" width="128" height="88"/>
     </elements>
 </model>

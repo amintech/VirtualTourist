@@ -92,6 +92,10 @@
                                                         <constraint firstAttribute="height" constant="124" id="UbF-fi-3w3"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="O38-LC-vok">
+                                                    <rect key="frame" x="52" y="52" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -101,6 +105,7 @@
                                             <constraint firstItem="xtR-2i-ngz" firstAttribute="leading" secondItem="v5w-Gm-sR3" secondAttribute="leading" id="uFr-Jj-Tcs"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="ActivityIndicatorController" destination="O38-LC-vok" id="PWc-tI-L7b"/>
                                             <outlet property="image" destination="xtR-2i-ngz" id="0xz-30-Egt"/>
                                         </connections>
                                     </collectionViewCell>

@@ -19,7 +19,7 @@ class API {
     
     static func getPhotos(_ lon: String, _ lat: String, completion: @escaping ([String]?, Error?) -> ()) {
         
-        let request = URLRequest(url: URL(string: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Constants.apiKey)&lat=\(lat)&lon=\(lon)&extras=url_m&format=json&nojsoncallback=1")!)
+        let request = URLRequest(url: URL(string: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=\(Constants.apiKey)&lat=\(lat)&lon=\(lon)&extras=url_m&per_page=100&format=json&nojsoncallback=1")!)
         
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
@@ -41,32 +41,14 @@ class API {
                 
                 let jsonObject = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments)
                 
-//                guard let jsonDictionary = jsonObject as? [String : Any] else {return}
-//
-//
-//                guard let resultsArray = jsonDictionary["photos"] as? [String : Any] else {return}
-//
-//                guard let photo = resultsArray["photo"] as? [[String : Any]] else {return}
-//
-//                let photoDictionary = photo[1] as [String: Any]
-//
-//                let imgURL = photoDictionary["url_m"] as! String
-//
-//                print(imgURL)
-                
                 guard let jsonDictionary = jsonObject as? [String : Any] else {return}
                 
                 guard let resultsArray = jsonDictionary["photos"] as? [String : Any] else {return}
                 
                 guard let photo = resultsArray["photo"] as? [[String : Any]] else {return}
+
                 
-                //guard let image = photo["url_m"] as? [String : Any] else {return}
- //                let photoDictionary = photo[1] as [String: Any]
-//
-//                let imgURL = photoDictionary["url_m"] as! String
-                
-                //print(imgURL)
-                
+
                 if photo.count == 0 {
                     let statusCodeError = NSError(domain: NSURLErrorDomain, code: 0, userInfo: nil)
                     completion(nil, statusCodeError)
@@ -75,23 +57,45 @@ class API {
                 
                 var imagesString: [String] = []
                 
-                for i in 0...photo.count - 1 {
-                    let photoDictionary = photo[i] as [String: Any]
-                    let imgURL = photoDictionary["url_m"] as! String
-                    print(imgURL)
+                let loop1 = photo.count - 1
+                
+                for i in 0...8 {
+                    if loop1 > i {
+                        let randomPhotoIndex = Int(arc4random_uniform(UInt32(loop1)))
+                        print(randomPhotoIndex)
+                        let photoDictionary = photo[randomPhotoIndex] as [String: Any]
+                        if let imgURL = photoDictionary["url_m"] as? String {
+                            imagesString.append(imgURL)
+                        }
+                        //print(imgURL)
+                    } else {
+                        
+                        break
+                        
+                    }
                     
-                    imagesString.append(imgURL)
-                
-                }
-                
-//
-                //let pngData = UIImage()
-                
-                //let dataObject = try! JSONSerialization.data(withJSONObject: array, options: .prettyPrinted)
-                //print (dataObject)
-                //let LocationsTemp = try! JSONDecoder().decode([Locations].self, from: dataObject)
+                    
+                    }
                 
                 completion(imagesString, nil)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    static func downloadImage( imagePath:String, completionHandler: @escaping (_ imageData: Data?, _ errorString: String?) -> Void){
+        let session = URLSession.shared
+        let imgURL = NSURL(string: imagePath)
+        let request: NSURLRequest = NSURLRequest(url: imgURL! as URL)
+        
+        let task = session.dataTask(with: request as URLRequest) {data, response, downloadError in
+            
+            if downloadError != nil {
+                completionHandler(nil, "Could not download image \(imagePath)")
+            } else {
+                
+                completionHandler(data, nil)
             }
         }
         

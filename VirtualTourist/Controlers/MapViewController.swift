@@ -28,7 +28,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsCo
         // Do any additional setup after loading the view.
     }
     
-    func fetch() {
+    fileprivate func fetch() {
         
         let fetchRequest: NSFetchRequest<Locations> = Locations.fetchRequest()
         
@@ -71,15 +71,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsCo
         self.mapView.addAnnotations(annotations)
         
         //UserDefaults.standard.setValue(1.2222, forKey: "long")
+        
+        
         if let long = UserDefaults.standard.value(forKey: "long") {
             if let lat = UserDefaults.standard.value(forKey: "lat") {
                 let coords = CLLocationCoordinate2D(latitude: lat as! CLLocationDegrees , longitude: long as! CLLocationDegrees)
                 //mapView.centerCoordinate = coords
                 //mapView.setCenter(coords, animated: true)
-                let span = MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
-                let region = MKCoordinateRegion(center: coords, span: span)
+                //print(lonDelta)
+                if let latD = UserDefaults.standard.value(forKey: "spanLatit") {
+                    
+                    if let longD = UserDefaults.standard.value(forKey: "spanLongt") {
+                        
+                        
+                        let span = MKCoordinateSpan(latitudeDelta: latD as! Double, longitudeDelta: longD as! Double)
+                        let region = MKCoordinateRegion(center: coords, span: span)
+                        
+                        self.mapView.setRegion(region, animated: true)
+                        
+                        
+                    }
+                    
+                }
                 
-                self.mapView.setRegion(region, animated: true)
+                
             }
         }
     }
@@ -88,10 +103,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsCo
         
         let long = Double(CLLocationDegrees(mapView.centerCoordinate.longitude))
         let lat = Double(CLLocationDegrees(mapView.centerCoordinate.latitude))
-        print(long)
+        
+        let span = mapView.region.span
+        let spanLat = Double(span.latitudeDelta)
+        let spanLon = Double(span.longitudeDelta)
+        
+        print(spanLat)
         UserDefaults.standard.setValue(long, forKey: "long")
         UserDefaults.standard.setValue(lat, forKey: "lat")
+        UserDefaults.standard.setValue(spanLat, forKey: "spanLatit")
+        UserDefaults.standard.setValue(spanLon, forKey: "spanLongt")
     }
+    
+    
     
     @objc func addAnnotation(gestureReconizer: UIGestureRecognizer) {
         
@@ -150,14 +174,37 @@ extension MapViewController {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            mapView.deselectAnnotation(view.annotation, animated: true)
-            let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionViewController") as! CollectionViewController
-            vc.cooords = view.annotation?.coordinate
-            navigationController?.show(vc, sender: self)
+        mapView.deselectAnnotation(view.annotation, animated: true)
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CollectionViewController") as! CollectionViewController
+        
+        vc.cooords = view.annotation?.coordinate
+        
+        let annotation = view.annotation
+        let annotationLat = annotation?.coordinate.latitude
+        let annotationLong = annotation?.coordinate.longitude
+        if let result = fetchResultsController.fetchedObjects {
+            for pin in result {
+                if pin.latitude == annotationLat && pin.longitude == annotationLong {
+                    vc.location = pin
+                    break
+                }
+            }
+        }
+        
+        navigationController?.show(vc, sender: self)
         
     }
     
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        
+    }
+    
+}
+
+extension MapViewController {
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
     }
     
