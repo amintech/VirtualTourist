@@ -33,5 +33,5 @@ __MIT__
 
 Free Software, Yeah!
 
-created By *Amin Saleh
+created By *Amin Saleh*
 
