@@ -15,6 +15,12 @@ __Photo Album View:__ Allows the users to download and edit an album for a locat
 
 ![screen shot 1440-06-01 at 11 04 54 pm](https://user-images.githubusercontent.com/11136648/52371052-8c92b880-2a65-11e9-9cde-e82c79da6233.png)
 
+## Requirements to build and run your app
+
+1 - ios 10 and above
+2 - Xcode 10.1
+3 - Swift 4.2
+
 ## How to run the project?
 
 1 - Open file *VirtualTourist.xcodeproj*
@@ -23,9 +29,9 @@ __Photo Album View:__ Allows the users to download and edit an album for a locat
 
 ## license
 
-MIT
+__MIT__
 
 Free Software, Yeah!
 
-created By Amin Saleh
+created By *Amin Saleh
 
