@@ -13,6 +13,7 @@ __Travel Locations Map View:__ Allows the user to drop pins around the world, wh
 
 __Photo Album View:__ Allows the users to download and edit an album for a location, if you tap a pin that does not yet have a photo album, the app will download Flickr images associated with the latitude and longitude of the pin, once the images have all been downloaded, the app enable the New Collection button at the bottom of the page, tapping this button will empty the photo album and fetch a new set of images, note that in locations that have a fairly static set of Flickr images, “new” images might overlap with previous collections of images, user able to remove photos from an album by tapping them, pictures will flow up to fill the space vacated by the removed photo.
 
+![screen shot 1440-06-01 at 11 04 54 pm](https://user-images.githubusercontent.com/11136648/52371052-8c92b880-2a65-11e9-9cde-e82c79da6233.png)
 
 ## How to run the project?
 
